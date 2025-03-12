@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="mb-4">Make a Payment</h2>
+
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <form method="POST">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="amount" class="form-label">Amount:</label>
+                    <input type="number" name="amount" id="amount" class="form-control" step="0.01" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="method" class="form-label">Payment Method:</label>
+                    <select name="method" id="method" class="form-select" required>
+                        <option value="CASH">Cash</option>
+                        <option value="ONLINE">Online</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-success">Pay Now</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

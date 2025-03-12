@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="mb-4">Payment Receipt</h2>
+    
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <h5 class="card-title">Receipt Details</h5>
+            <p><strong>Student:</strong> {{ payment.student.user.username }}</p>
+            <p><strong>Amount:</strong> {{ payment.payment_amount }}</p>
+            <p><strong>Method:</strong> {{ payment.payment_method }}</p>
+            <p><strong>Date:</strong> {{ payment.payment_date }}</p>
+        </div>
+    </div>
+
+    <div class="mt-3">
+        <button class="btn btn-success" onclick="window.print()">Print Receipt</button>
+    </div>
+</div>
+{% endblock %}
